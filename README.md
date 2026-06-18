@@ -35,11 +35,12 @@ Cycling reads the terminal's current name, removes a previously-applied marker (
 
 This is a no-build, plain-JS extension. Two options:
 
-**A. Dev-folder install (simplest).** Copy or symlink this folder into your VS Code extensions dir, then reload:
+**A. Dev-folder install (simplest).** Point a directory junction from your VS Code
+extensions dir at this repo, so edits here go live on the next window reload (no admin needed):
 
-```bash
-# Windows (Git Bash)
-cp -r /c/Users/Travail/vscode-extension-utils ~/.vscode/extensions/vscode-extension-utils-0.1.0
+```cmd
+:: Windows (cmd) — junction, repo stays the source of truth
+mklink /J "%USERPROFILE%\.vscode\extensions\vscode-extension-utils-0.1.0" "%USERPROFILE%\claude-code\vscode-extension-utils"
 ```
 
 **B. Package a .vsix:**
