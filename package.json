@@ -1,0 +1,50 @@
+{
+  "name": "vscode-extension-utils",
+  "displayName": "Extension Utils",
+  "description": "Small personal VS Code utilities. Currently: cycle a colored emoji marker on the active terminal tab.",
+  "version": "0.1.0",
+  "publisher": "butanium",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Butanium/vscode-extension-utils.git"
+  },
+  "engines": {
+    "vscode": "^1.74.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "extensionUtils.cycleTerminalMarker",
+        "title": "Terminal: Cycle Marker (emoji prefix)"
+      },
+      {
+        "command": "extensionUtils.clearTerminalMarker",
+        "title": "Terminal: Clear Marker"
+      }
+    ],
+    "configuration": {
+      "title": "Extension Utils",
+      "properties": {
+        "extensionUtils.terminalMarkers": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [
+            "🟢",
+            "🟡",
+            "🔵",
+            "🟣",
+            "🟠"
+          ],
+          "description": "Markers cycled through and prepended to the active terminal name. Each cycle strips the previous marker (so they don't stack) and prepends the next one."
+        }
+      }
+    }
+  }
+}
