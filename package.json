@@ -16,6 +16,9 @@
     "Other"
   ],
   "main": "./extension.js",
+  "extensionKind": [
+    "ui"
+  ],
   "contributes": {
     "commands": [
       {

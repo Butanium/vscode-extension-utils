@@ -51,3 +51,14 @@ code --install-extension vscode-extension-utils-0.1.0.vsix
 ```
 
 Reload the window (`Developer: Reload Window`) after installing.
+
+## Remote-SSH / WSL / Containers
+
+This extension is declared `"extensionKind": ["ui"]`, so it runs in the **local** extension
+host and stays active inside Remote-SSH, WSL, and Container windows — without needing to be
+installed on the remote server. Renaming a terminal tab is a workbench/renderer operation and
+`window.activeTerminal` is synced to every extension host, so it correctly marks *remote*
+terminals too. The single local junction install covers every window type.
+
+(If it had a default `workspace` kind, it would instead need to be installed on each remote
+host's `~/.vscode-server/extensions`, which a local dev junction does not provide.)
